@@ -26,5 +26,8 @@ public class HomePageSteps {
 	}
 
 
-
+	@When("user click on Stays menu")
+	public void userClickOnStaysMenu() {
+		homePage.clickOnStayMenu();
+	}
 }

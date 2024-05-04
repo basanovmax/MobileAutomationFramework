@@ -30,14 +30,11 @@ public class FlightSearchSteps {
 	public void selectDateFromTo(String travelDate, String returnDate) {
 		flightSearchPage.enterDate(ConfigReader.getProperty(travelDate));
 		flightSearchPage.enterDate(ConfigReader.getProperty(returnDate));
-
-
 	}
 
 	@And("click on done button")
 	public void clickOnDoneButton() {
 		flightSearchPage.clickDoneBnt();
-		
 	}
 
 	@And("click on search button")
@@ -46,6 +43,17 @@ public class FlightSearchSteps {
 		
 	}
 
+	@Then("verify invalid search error is displayed with text")
+	public void verifyInvalidSearchErrorIsDisplayedWithText(String message) {
+		Assert.assertTrue(flightSearchPage.isSameLocationErrorIsDisplayed());
+		Assert.assertEquals(message,flightSearchPage.getSameLocationErrorMessage());
+
+	}
+
+	@And("click on done button on invalid search error popup")
+	public void clickOnDoneButtonOnInvalidSearchErrorPopup() {
+		flightSearchPage.clickOnDoneButtonOnInvalidSearchErrorPopup();
+	}
 
 
 }

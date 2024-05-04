@@ -36,6 +36,10 @@ public class HomePage extends BasePage {
 	public void clickOnFlightTab() {
 		flightTab.click();
 	}
+
+	public void clickOnStayMenu() {
+		staysTab.click();
+	}
 }
 
 
