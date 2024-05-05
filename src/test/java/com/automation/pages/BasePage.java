@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import java.time.Duration;
 
-public class BasePage {
+public abstract class BasePage {
 
 	public AppiumDriver driver;
 
@@ -21,6 +21,7 @@ public class BasePage {
 			element.click();
 		} catch (Exception e) {
 			e.printStackTrace();
+			// Do nothing
 		} finally {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 		}
