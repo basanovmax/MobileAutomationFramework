@@ -12,7 +12,14 @@ public class Hooks {
 	@Before
 	public void setUp() throws MalformedURLException {
 		ConfigReader.loadProperties();
-		if (ConfigReader.getProperty("execution.platform").equals("local")) {
+		//Jenkins Parameter
+		String environment = System.getProperty("execution.platform");
+
+		// If we do not get parameters from Jenkins, consider config file parameter
+		if (environment == null){
+			environment = ConfigReader.getProperty("execution.platform");
+		}
+		if (environment.equalsIgnoreCase("Local")) {
 			DriverUtils.createLocalDriver();
 		} else {
 			DriverUtils.createBSDriver();
